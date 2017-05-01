@@ -14,9 +14,9 @@ class One extends Component {
   }
 
   componentDidMount() {
-  axios.get("https://raw.githubusercontent.com/malantonio/mst3k-episodes/master/episodes.json")
+  axios.get("https://raw.githubusercontent.com/edplato/mst3k-episodes/master/episodes.json")
     .then(res => {
-      const movie = res.data.episodes.map(ep => [ep.id, ep.season, ep.episode, ep.movie, ep.air_date]);
+      const movie = res.data.episodes.map(ep => [ep.id, ep.season, ep.episode, ep.movie, ep.movie_details, ep.shorts, ep.air_date]);
       this.setState({ movie });
       // console.log(this.state.movie[0][0]);
     });
@@ -24,12 +24,25 @@ class One extends Component {
   handleEpisodeDisplay(indexNum) {
     const newArr = this.state.movie.map((mov, index) => 
             <div key={mov[0]}>
-            <h2>Movie: {mov[3]}</h2>
+            <h2>{mov[3]}</h2>
+            <h6>{mov[4]} - Ep ID: {mov[0]}</h6>
             <p>Season #: {mov[1]} - Episode #: {mov[2]}</p>
-            <h6>Archive ID: {mov[0]}</h6>
-        
-            <p>TV Air Date: {mov[4]}</p>
-            <p>Index #: {index}</p>
+            
+
+            <a href={"https://www.youtube.com/results?search_query=mst3k+" + mov[3]} target="_blank">Check for MST3K movie on YouTube</a>
+            
+            <div>
+            {(mov[5] !== undefined && mov[5][0] !==undefined
+              ? (mov[5][1] !==undefined
+                   ? <p>Shorts: {mov[5][0]}, {mov[5][1]}</p>
+                   : <p>Shorts: {mov[5][0]}</p>
+                )
+              : <p>Shorts: none</p>
+            )}
+            </div>
+
+            <p>TV Air Date: {mov[6]}</p>
+            {/*<p>Index #: {index}</p>*/}
 
 
             </div>
@@ -101,7 +114,9 @@ class One extends Component {
         <button onClick={this.handleJumpToSeason.bind(this, 185)}>
         10
         </button>
-   
+        <button onClick={this.handleJumpToSeason.bind(this, 198)}>
+        11
+        </button>   
         <div>
           {this.handleEpisodeDisplay(this.state.counter)}
         </div>
