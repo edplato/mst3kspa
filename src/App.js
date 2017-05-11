@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Main from './Main.js';
 import Header from './Header.js';
-import Categories from './Categories.js';
 
 import './App.css';
 
@@ -20,9 +19,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Main />
-        <Route exact path='/categories' component={Categories}/>
         <div>
-
         </div>
       </div>
     );

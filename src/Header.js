@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-
-var ulStyle = {
-  listStyle: 'none'
-}
-
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 class Header extends Component {
 	render() {
 		return (
-      <header>
+      <header className="App-header">
         <nav>
-          <ul style={ulStyle}>
-            {/*header links */}
-            <li><Link to="/">Home Link</Link></li>
-            <li><Link to="/one">MST3K Link</Link></li>
-            <li><Link to="/two">UNKNOWN Link</Link></li>
-          </ul>
+        <span className="appTitle">MST3K Episode Quick Guide</span>
+
+            <NavLink to="/" exact activeClassName="activeNavLink">
+              <div className="headerBlock headerEpGuide"><p>MST3K Episode Guide</p></div>
+            </NavLink>
+
+            <NavLink to="/about" activeClassName="activeNavLink">
+              <div className="headerBlock headerAboutUs"><p>About</p></div>
+            </NavLink>
+
         </nav>
       </header>
     );
