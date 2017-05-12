@@ -6,7 +6,9 @@ class Header extends Component {
 		return (
       <header className="App-header">
         <nav>
-        <span className="appTitle">MST3K Episode Quick Guide</span>
+        <div className="appTitle">
+        MST3K Episode Quick Guide
+        </div>
 
             <NavLink to="/" exact activeClassName="activeNavLink">
               <div className="headerBlock headerEpGuide"><p>MST3K Episode Guide</p></div>

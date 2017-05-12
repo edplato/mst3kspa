@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class Home extends Component {
-	constructor(props) {
+	constructor() {
     super();
 
     this.state = {
@@ -71,49 +71,58 @@ class Home extends Component {
     e.preventDefault();
       this.setState({ counter: num });
   }
+  handleHighlightSeason = (seasonStart, seasonEnd) => {
+    if(this.state.counter >= seasonStart && this.state.counter <= seasonEnd){
+      return (
+          'highlightCurrentSeason'
+        )
+    }
+  }
+
   render() {
     return (
-      <div>
-        <h1>MST3K View!!!!!</h1>
+      <div className="appBody">
 
-
-        <h3>JUMP TO SEASON</h3>
-        <button onClick={this.handleJumpToSeason.bind(this, 0)}>
+      <div className="jumpToSeason">
+        <h5 className="jumpToSeasonTitle">JUMP TO SEASON</h5>
+        <button className={this.handleHighlightSeason(0, 21)} onClick={this.handleJumpToSeason.bind(this, 0)}>
         KTMA
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 22)}>
+        <button className={this.handleHighlightSeason(22, 34)} onClick={this.handleJumpToSeason.bind(this, 22)}>
         1
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 35)}>
+        <button className={this.handleHighlightSeason(35, 47)} onClick={this.handleJumpToSeason.bind(this, 35)}>
         2
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 48)}>
+        <button className={this.handleHighlightSeason(48, 71)} onClick={this.handleJumpToSeason.bind(this, 48)}>
         3
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 72)}>
+        <button className={this.handleHighlightSeason(72, 95)} onClick={this.handleJumpToSeason.bind(this, 72)}>
         4
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 96)}>
+        <button className={this.handleHighlightSeason(96, 119)} onClick={this.handleJumpToSeason.bind(this, 96)}>
         5
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 120)}>
+        <button className={this.handleHighlightSeason(120, 143)} onClick={this.handleJumpToSeason.bind(this, 120)}>
         6
         </button>      
-        <button onClick={this.handleJumpToSeason.bind(this, 144)}>
+        <button className={this.handleHighlightSeason(144, 149)} onClick={this.handleJumpToSeason.bind(this, 144)}>
         7
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 150)}>
+        <button className={this.handleHighlightSeason(150, 171)} onClick={this.handleJumpToSeason.bind(this, 150)}>
         8
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 172)}>
+        <button className={this.handleHighlightSeason(172, 184)} onClick={this.handleJumpToSeason.bind(this, 172)}>
         9
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 185)}>
+        <button className={this.handleHighlightSeason(185, 197)} onClick={this.handleJumpToSeason.bind(this, 185)}>
         10
         </button>
-        <button onClick={this.handleJumpToSeason.bind(this, 198)}>
+        <button className={this.handleHighlightSeason(198, 211)} onClick={this.handleJumpToSeason.bind(this, 198)}>
         11
         </button>   
+        </div>
+
         <div>
           {this.handleEpisodeDisplay(this.state.counter)}
         </div>
