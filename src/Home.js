@@ -1,34 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class Home extends Component {
-	constructor() {
-    super();
-
-    this.state = {
-       movie: [],
-       counter: 0
-    };
-    this.handleHigherInList = this.handleHigherInList.bind(this);
-    this.handleLowerInList = this.handleLowerInList.bind(this);
-    this.randomEpisode = this.randomEpisode.bind(this);
+	constructor(props) {
+    super(props);
   }
 
-  componentDidMount() {
-  axios.get("https://raw.githubusercontent.com/edplato/mst3k-episodes/master/episodes.json")
-    .then(res => {
-      const movie = res.data.episodes.map(ep => [ep.id, ep.season, ep.episode, ep.movie, ep.movie_details, ep.shorts, ep.air_date]);
-      this.setState({ movie });
-    });
-  }
   handleEpisodeDisplay(indexNum) {
-    const newArr = this.state.movie.map((mov, index) => 
+    const newArr = this.props.movieArray.map((mov, index) => 
             <div key={mov[0]}>
             <h2>{mov[3]}</h2>
             <h6>{mov[4]} - Ep ID: {mov[0]}</h6>
             
-            
-
             <a href={"https://www.youtube.com/results?search_query=mst3k+" + mov[3]} target="_blank">Check for MST3K movie on YouTube</a>
             
             <div>
@@ -51,28 +33,9 @@ class Home extends Component {
         newArr[indexNum]
         )
   }
-  handleLowerInList(e) {
-    e.preventDefault();
-    if(this.state.counter > 0){
-      this.setState({ counter: this.state.counter - 1 });
-    }
-  }
-  handleHigherInList(e) {
-    e.preventDefault();
-    if(this.state.counter < this.state.movie.length - 1){
-      this.setState({ counter: this.state.counter + 1 });
-    }
-  }
-  randomEpisode(e) {
-    e.preventDefault();
-      this.setState({ counter: Math.floor(Math.random()*212) });
-  }
-  handleJumpToSeason = (num, e) => {
-    e.preventDefault();
-      this.setState({ counter: num });
-  }
+  
   handleHighlightSeason = (seasonStart, seasonEnd) => {
-    if(this.state.counter >= seasonStart && this.state.counter <= seasonEnd){
+    if(this.props.counter >= seasonStart && this.props.counter <= seasonEnd){
       return (
           'highlightCurrentSeason'
         )
@@ -85,57 +48,57 @@ class Home extends Component {
 
       <div className="jumpToSeason">
         <h5 className="jumpToSeasonTitle">JUMP TO SEASON</h5>
-        <button className={this.handleHighlightSeason(0, 21)} onClick={this.handleJumpToSeason.bind(this, 0)}>
+        <button className={this.handleHighlightSeason(0, 21)} onClick={this.props.handleJumpToSeason.bind(this, 0)}>
         KTMA
         </button>
-        <button className={this.handleHighlightSeason(22, 34)} onClick={this.handleJumpToSeason.bind(this, 22)}>
+        <button className={this.handleHighlightSeason(22, 34)} onClick={this.props.handleJumpToSeason.bind(this, 22)}>
         1
         </button>
-        <button className={this.handleHighlightSeason(35, 47)} onClick={this.handleJumpToSeason.bind(this, 35)}>
+        <button className={this.handleHighlightSeason(35, 47)} onClick={this.props.handleJumpToSeason.bind(this, 35)}>
         2
         </button>
-        <button className={this.handleHighlightSeason(48, 71)} onClick={this.handleJumpToSeason.bind(this, 48)}>
+        <button className={this.handleHighlightSeason(48, 71)} onClick={this.props.handleJumpToSeason.bind(this, 48)}>
         3
         </button>
-        <button className={this.handleHighlightSeason(72, 95)} onClick={this.handleJumpToSeason.bind(this, 72)}>
+        <button className={this.handleHighlightSeason(72, 95)} onClick={this.props.handleJumpToSeason.bind(this, 72)}>
         4
         </button>
-        <button className={this.handleHighlightSeason(96, 119)} onClick={this.handleJumpToSeason.bind(this, 96)}>
+        <button className={this.handleHighlightSeason(96, 119)} onClick={this.props.handleJumpToSeason.bind(this, 96)}>
         5
         </button>
-        <button className={this.handleHighlightSeason(120, 143)} onClick={this.handleJumpToSeason.bind(this, 120)}>
+        <button className={this.handleHighlightSeason(120, 143)} onClick={this.props.handleJumpToSeason.bind(this, 120)}>
         6
         </button>      
-        <button className={this.handleHighlightSeason(144, 149)} onClick={this.handleJumpToSeason.bind(this, 144)}>
+        <button className={this.handleHighlightSeason(144, 149)} onClick={this.props.handleJumpToSeason.bind(this, 144)}>
         7
         </button>
-        <button className={this.handleHighlightSeason(150, 171)} onClick={this.handleJumpToSeason.bind(this, 150)}>
+        <button className={this.handleHighlightSeason(150, 171)} onClick={this.props.handleJumpToSeason.bind(this, 150)}>
         8
         </button>
-        <button className={this.handleHighlightSeason(172, 184)} onClick={this.handleJumpToSeason.bind(this, 172)}>
+        <button className={this.handleHighlightSeason(172, 184)} onClick={this.props.handleJumpToSeason.bind(this, 172)}>
         9
         </button>
-        <button className={this.handleHighlightSeason(185, 197)} onClick={this.handleJumpToSeason.bind(this, 185)}>
+        <button className={this.handleHighlightSeason(185, 197)} onClick={this.props.handleJumpToSeason.bind(this, 185)}>
         10
         </button>
-        <button className={this.handleHighlightSeason(198, 211)} onClick={this.handleJumpToSeason.bind(this, 198)}>
+        <button className={this.handleHighlightSeason(198, 211)} onClick={this.props.handleJumpToSeason.bind(this, 198)}>
         11
         </button>   
-        </div>
+      </div>
 
-        <div>
-          {this.handleEpisodeDisplay(this.state.counter)}
-        </div>
+      <div>
+        {this.handleEpisodeDisplay(this.props.counter)}
+      </div>
 
-        <button onClick={this.handleLowerInList}>
+        <button onClick={this.props.handleLowerInList}>
         PREVIOUS
         </button>
 
-        <button onClick={this.handleHigherInList}>
+        <button onClick={this.props.handleHigherInList}>
         NEXT
         </button>
 
-        <button onClick={this.randomEpisode}>
+        <button onClick={this.props.randomEpisode}>
         RANDOM EPISODE
         </button>
 
