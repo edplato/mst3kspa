@@ -10,7 +10,7 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      counter: 0,
+      episodeCounter: 0,
       movieArray: []
     }
 
@@ -29,24 +29,24 @@ class Main extends Component {
 
   handleLowerInList(e) {
     e.preventDefault();
-    if(this.state.counter > 0){
-      this.setState({ counter: this.state.counter - 1 });
+    if(this.state.episodeCounter > 0){
+      this.setState({ episodeCounter: this.state.episodeCounter - 1 });
     }
   }
   handleHigherInList(e) {
     e.preventDefault();
-    if(this.state.counter < this.state.movieArray.length - 1){
-      this.setState({ counter: this.state.counter + 1 });
+    if(this.state.episodeCounter < this.state.movieArray.length - 1){
+      this.setState({ episodeCounter: this.state.episodeCounter + 1 });
     }
   }
   randomEpisode(e) {
     e.preventDefault();
-      this.setState({ counter: Math.floor(Math.random()*212) });
+      this.setState({ episodeCounter: Math.floor(Math.random()*212) });
   }
 
   handleJumpToSeason = (num, e) => {
     e.preventDefault();
-      this.setState({ counter: num });
+      this.setState({ episodeCounter: num });
   }
 
   render() {
@@ -57,7 +57,7 @@ class Main extends Component {
           <Route exact path='/' render={(props) => (
           <Home {...props} 
           movieArray = {this.state.movieArray}
-          counter = {this.state.counter} 
+          episodeCounter = {this.state.episodeCounter} 
           handleLowerInList = {this.handleLowerInList}
           handleHigherInList = {this.handleHigherInList}
           handleJumpToSeason = {this.handleJumpToSeason}

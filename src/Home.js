@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
-	constructor(props) {
-    super(props);
-  }
+	// constructor(props) {
+ //    super(props);
+ //  }
 
   handleEpisodeDisplay(indexNum) {
     const newArr = this.props.movieArray.map((mov, index) => 
             <div key={mov[0]}>
             <h2>{mov[3]}</h2>
-            <h6>{mov[4]} - Ep ID: {mov[0]}</h6>
+            <p>{mov[4]}</p>
             
             <a href={"https://www.youtube.com/results?search_query=mst3k+" + mov[3]} target="_blank">Check for MST3K movie on YouTube</a>
             
             <div>
             {(mov[5] !== undefined && mov[5][0] !==undefined
               ? (mov[5][1] !==undefined
-                   ? <p>Shorts: {mov[5][0]}, {mov[5][1]}</p>
-                   : <p>Shorts: {mov[5][0]}</p>
+                   ? <p><strong>Shorts:</strong> <em>{mov[5][0]}, {mov[5][1]}</em></p>
+                   : <p><strong>Shorts:</strong> <em>{mov[5][0]}</em></p>
                 )
-              : <p>Shorts: none</p>
+              : <p><strong>Shorts:</strong> none</p>
             )}
             </div>
 
-            <p>TV Air Date: {mov[6]}</p>
-            {/*<p>Index #: {index}</p>*/}
-            <p>Season: {mov[1]} - Episode: {mov[2]}</p>
-
+            <p><strong>TV Air Date:</strong> {mov[6]}</p>
+            <p><strong>Episode ID:</strong> {mov[0]}</p>
             </div>
           )
       return (
@@ -35,7 +33,7 @@ class Home extends Component {
   }
   
   handleHighlightSeason = (seasonStart, seasonEnd) => {
-    if(this.props.counter >= seasonStart && this.props.counter <= seasonEnd){
+    if(this.props.episodeCounter >= seasonStart && this.props.episodeCounter <= seasonEnd){
       return (
           'highlightCurrentSeason'
         )
@@ -86,10 +84,11 @@ class Home extends Component {
         </button>   
       </div>
 
-      <div>
-        {this.handleEpisodeDisplay(this.props.counter)}
+      <div className="episodeInfoDisplay">
+        {this.handleEpisodeDisplay(this.props.episodeCounter)}
       </div>
 
+      <div className="episodeButtons">
         <button onClick={this.props.handleLowerInList}>
         PREVIOUS
         </button>
@@ -99,8 +98,9 @@ class Home extends Component {
         </button>
 
         <button onClick={this.props.randomEpisode}>
-        RANDOM EPISODE
+        RANDOM
         </button>
+      </div>
 
       </div>
     );

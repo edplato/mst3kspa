@@ -11,7 +11,7 @@ class Header extends Component {
         </div>
 
             <NavLink to="/" exact activeClassName="activeNavLink">
-              <div className="headerBlock headerEpGuide"><p>MST3K Episode Guide</p></div>
+              <div className="headerBlock headerEpGuide"><p>Episode Guide</p></div>
             </NavLink>
 
             <NavLink to="/about" activeClassName="activeNavLink">
