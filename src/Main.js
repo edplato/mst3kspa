@@ -22,7 +22,7 @@ class Main extends Component {
   componentDidMount() {
   axios.get("https://raw.githubusercontent.com/edplato/mst3k-episodes/master/episodes.json")
     .then(res => {
-      const movieArray = res.data.episodes.map(ep => [ep.id, ep.season, ep.episode, ep.movie, ep.movie_details, ep.shorts, ep.air_date]);
+      const movieArray = res.data.episodes.map(ep => [ep.id, ep.season, ep.episode, ep.movie, ep.movie_details, ep.shorts, ep.air_date, ep.imdb]);
       this.setState({ movieArray });
     });
   }

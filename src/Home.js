@@ -8,11 +8,16 @@ class Home extends Component {
   handleEpisodeDisplay(indexNum) {
     const newArr = this.props.movieArray.map((mov, index) => 
             <div key={mov[0]}>
-            <h2>{mov[3]}</h2>
+            <h3>{mov[3]}</h3>
             <p>{mov[4]}</p>
+
+
+            <div className="movieLinks">
+              <a href={"https://www.youtube.com/results?search_query=mst3k+" + mov[3]} target="_blank"><button className="youtubeLink">Check YouTube</button></a>
             
-            <a href={"https://www.youtube.com/results?search_query=mst3k+" + mov[3]} target="_blank">Check for MST3K movie on YouTube</a>
-            
+              <a href={"http://www.imdb.com/title/" + mov[7]} target="_blank"><button className="imdbLink">View IMDB</button></a>
+            </div>
+
             <div>
             {(mov[5] !== undefined && mov[5][0] !==undefined
               ? (mov[5][1] !==undefined

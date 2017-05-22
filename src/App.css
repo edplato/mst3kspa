@@ -6,6 +6,12 @@ html {
   width: 100%;
   height: 100%;
 }
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-family: 'Krona One', sans-serif;
+}
 .App {
   text-align: center;
   max-width: 500px;
@@ -41,6 +47,53 @@ html {
   height: 100%;
   padding-top: 10px;
   min-height: 518px;
+}
+
+.movieLinks button {
+  font-size: 1em;
+  width: 48%;
+  height: 54px;
+  line-height: 50px;
+  border: 3px solid white;
+  display: inline-block;
+}
+
+.youtubeLink {
+  background: 
+    linear-gradient(
+      to right,
+      #e52d27 15%,
+      #7f8387 16%
+      );
+}
+
+.youtubeLink:hover {
+  background: 
+    linear-gradient(
+      to right,
+      #e52d27 15%,
+      #6ea8f4 16%
+      );
+}
+
+.imdbLink {
+  background: 
+    linear-gradient(
+      to right,
+      #f5de50 15%,
+      #7f8387 16%
+      );
+    transition: all 1.2s ease 1s;
+}
+
+.imdbLink:hover {
+  background: 
+    linear-gradient(
+      to right,
+      #f5de50 15%,
+      #6ea8f4 16%
+      );
+   transition: all 1.2s ease 1s;
 }
 
 .headerBlock {
@@ -103,15 +156,20 @@ html {
 
 .aboutFooter {
   width: 100%;
-  height: 251px;
-  background: url("../public/MST3Koverlay1.png");
+  height: 300px;
+  background-image: 
+    linear-gradient(to top, rgba(3,3,3,0.1), rgba(255,255,255,0.9)),
+    url("../public/MST3Koverlay1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .episodeButtons {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 45px;
+  height: 46px;
   width: 100%;
 }
 
@@ -121,8 +179,8 @@ html {
   background-color: #7f8387;
   outline: none;
   color: white;
-  font-size: 1.1em;
-  padding: 12px 22.5px;
+  font-size: 1em;
+  padding: 12px 19px;
   cursor: pointer;
 }
 
@@ -140,3 +198,6 @@ button:hover {
 button:active {
   background-color: #3084F0;
 }
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
