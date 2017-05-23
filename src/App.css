@@ -20,127 +20,147 @@ body {
   margin-left:auto;
   margin-right:auto;
 }
-
 .App-header {
   background-color: #222;
   font-family: 'Russo One', sans-serif;
   letter-spacing: 2px;
   color: #FFC900;
 }
-
 .App-header a {
   text-decoration: none;
   color: white;
 }
-
 .App-header a:visited {
   color: white;
 }
-
 .appTitle {
   font-size: 1.8em;
   letter-spacing: 3px;
 }
-
 .appBody {
   position: relative;
   height: 100%;
-  padding-top: 10px;
-  min-height: 518px;
+  padding-top: 5px;
+  min-height: 450px;
+  background-image: 
+    linear-gradient(to top, rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    url("../public/MST3Kmoon-min.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
 }
 
+/*MAIN movie text*/
+.movieTitle {
+  margin: 8px auto;
+}
+.movieYear {
+  font-size: .5em;
+}
+.movieShorts {
+  font-size: .8em;
+}
+.movieAirDate {
+  font-size: .8em;
+}
+.movieEpisodeId {
+  font-size: .85em;
+  position: absolute;
+  bottom: 50px;
+  left: 20%;
+  right: 20%;
+}
+.movieLinks {
+  position: absolute;
+  bottom: 100px;
+  left: 1%;
+  right: 1%;
+}
 .movieLinks button {
   font-size: 1em;
+  color: #444;
   width: 48%;
   height: 54px;
   line-height: 50px;
-  border: 3px solid white;
+  border: none;
   display: inline-block;
+  margin: 3px;
 }
-
 .youtubeLink {
   background: 
     linear-gradient(
       to right,
-      #e52d27 15%,
-      #7f8387 16%
+      #e52d27 8%,
+      #7f8387 9%
       );
 }
-
 .youtubeLink:hover {
   background: 
     linear-gradient(
       to right,
-      #e52d27 15%,
-      #6ea8f4 16%
+      #e52d27 8%,
+      #6ea8f4 9%
       );
 }
-
 .imdbLink {
   background: 
     linear-gradient(
       to right,
-      #f5de50 15%,
-      #7f8387 16%
+      #FFC900 8%,
+      #7f8387 9%
       );
     transition: all 1.2s ease 1s;
 }
-
 .imdbLink:hover {
   background: 
     linear-gradient(
       to right,
-      #f5de50 15%,
-      #6ea8f4 16%
+      #FFC900 8%,
+      #6ea8f4 9%
       );
    transition: all 1.2s ease 1s;
 }
 
+/*HEADER*/
 .headerBlock {
   line-height: 10px;
   display: inline-block;
   background: #7f8387;
   height: 40px;
 }
-
 .headerBlock:hover {
   background-color: #6ea8f4; 
 }
-
 .headerEpGuide {
   width: 70%;
   text-align: left;
 }
-
 .headerEpGuide p {
   padding-left: 0.7em;
 }
-
 .headerAboutUs {
   width: 30%;
   text-align: left;
 }
-
 .headerAboutUs p {
   padding-left: 0.7em;
 }
-
 .activeNavLink div {
   background: #3084F0;
   height: 40px;
 }
 
-.jumpToSeason {
+/*MAIN jump to season buttons*/
+.jumpToSeasonButtons {
   border-bottom: 5px solid #333;
 }
-
 .jumpToSeasonTitle {
+  font-size: .7em;
   margin: 0 auto;
-  letter-spacing: 2px;
-  opacity: 0.8;
+  letter-spacing: 3px;
+  opacity: 0.4;
 }
-
-.jumpToSeason button {
+.jumpToSeasonButtons button {
   border: none;
   text-decoration: none;
   outline: none;
@@ -149,31 +169,19 @@ body {
   padding: 8px 12px;
   cursor: pointer;
 }
-
 .highlightCurrentSeason {
   background-color: #3084F0;
 }
 
-.aboutFooter {
-  width: 100%;
-  height: 300px;
-  background-image: 
-    linear-gradient(to top, rgba(3,3,3,0.1), rgba(255,255,255,0.9)),
-    url("../public/MST3Koverlay1.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.episodeButtons {
+/*MAIN episode buttons*/
+.episodeSelectButtons {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 46px;
+  height: 44px;
   width: 100%;
 }
-
-.episodeButtons button {
+.episodeSelectButtons button {
   border: none;
   text-decoration: none;
   background-color: #7f8387;
@@ -183,21 +191,34 @@ body {
   padding: 12px 19px;
   cursor: pointer;
 }
-
 button {
   font-family: 'Russo One', sans-serif;
   display: inline-block;
   background-color: #7f8387;
   transition: all 0.2s ease 0s;
 }
-
 button:hover {
   background-color: #6ea8f4;
 }
-
 button:active {
   background-color: #3084F0;
 }
 
+/*ABOUT*/
+.aboutText {
+  font-size: 0.8em;
+}
+.aboutFooter {
+  width: 100%;
+  height: 300px;
+  background-image: 
+    linear-gradient(to top, rgba(255,255,255,0.1), rgba(255,255,255,0.9)),
+    url("../public/MST3Koverlay-min.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/*remove mozilla outlines on buttons and text*/
 :focus {outline:none;}
 ::-moz-focus-inner {border:0;}

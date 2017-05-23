@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import Home from './Home.js';
 import About from './About.js';
@@ -55,15 +55,15 @@ class Main extends Component {
       <div>
         <Switch>
           <Route exact path='/' render={(props) => (
-          <Home {...props} 
-          movieArray = {this.state.movieArray}
-          episodeCounter = {this.state.episodeCounter} 
-          handleLowerInList = {this.handleLowerInList}
-          handleHigherInList = {this.handleHigherInList}
-          handleJumpToSeason = {this.handleJumpToSeason}
-          randomEpisode = {this.randomEpisode}
-          />
-          )}/>
+            <Home {...props} 
+            movieArray={this.state.movieArray}
+            episodeCounter={this.state.episodeCounter} 
+            handleLowerInList={this.handleLowerInList}
+            handleHigherInList={this.handleHigherInList}
+            handleJumpToSeason={this.handleJumpToSeason}
+            randomEpisode={this.randomEpisode}
+            />
+            )}/>
           <Route path="/about" component={About}/>
         </Switch>
       </div>
