@@ -59,6 +59,7 @@ class Home extends Component {
         <button className={this.handleHighlightSeason(172, 184)} onClick={this.props.handleJumpToSeason.bind(this, 172)}>9</button>
         <button className={this.handleHighlightSeason(185, 197)} onClick={this.props.handleJumpToSeason.bind(this, 185)}>10</button>
         <button className={this.handleHighlightSeason(198, 211)} onClick={this.props.handleJumpToSeason.bind(this, 198)}>11</button>   
+        <button className={this.handleHighlightSeason(212, 217)} onClick={this.props.handleJumpToSeason.bind(this, 212)}>12</button>   
       </div>
 
       <div className="episodeMainTextDisplay">
