@@ -41,7 +41,7 @@ class Main extends Component {
   }
   randomEpisode(e) {
     e.preventDefault();
-      this.setState({ episodeCounter: Math.floor(Math.random()*212) });
+      this.setState({ episodeCounter: Math.floor(Math.random()*218) });
   }
 
   handleJumpToSeason = (num, e) => {
